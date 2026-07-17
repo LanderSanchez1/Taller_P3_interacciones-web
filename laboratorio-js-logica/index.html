@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laboratorio JS - Fundamentos lógicos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+  <main class="container py-5">
+    <section class="card shadow-sm">
+      <div class="card-body">
+        <h1 class="h4 mb-3">Evaluador académico</h1>
+        <p class="text-muted">Ingrese los datos y calcule el estado del estudiante.</p>
+ 
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input id="nombre" type="text" class="form-control" placeholder="Ejemplo: Ana Torres">
+          </div>
+ 
+          <div class="col-md-6">
+            <label for="carrera" class="form-label">Carrera</label>
+            <select id="carrera" class="form-select">
+              <option value="">Seleccione...</option>
+              <option value="TI">Tecnologías de la Información</option>
+              <option value="Software">Software</option>
+              <option value="Sistemas">Sistemas</option> <!-- Corregido: "Sistemas" en lugar de "Redes" -->
+            </select>
+          </div>
+ 
+          <div class="col-md-3">
+            <label for="nota1" class="form-label">Nota 1</label>
+            <input id="nota1" type="number" class="form-control" min="0" max="20" step="0.01">
+          </div>
+ 
+          <div class="col-md-3">
+            <label for="nota2" class="form-label">Nota 2</label>
+            <input id="nota2" type="number" class="form-control" min="0" max="20" step="0.01">
+          </div>
+ 
+          <div class="col-md-3">
+            <label for="nota3" class="form-label">Nota 3</label>
+            <input id="nota3" type="number" class="form-control" min="0" max="20" step="0.01">
+          </div>
+
+          <div class="col-md-3">
+            <label for="nota4" class="form-label">Nota 4</label>
+            <input id="nota4" type="number" class="form-control" min="0" max="20" step="0.01">
+          </div>
+        </div>
+ 
+        <button id="btnEvaluar" class="btn btn-primary mt-4">Evaluar</button>
+        <button id="btnLimpiar" class="btn btn-outline-secondary mt-4">Limpiar</button>
+        <button id="btnListar" class="btn btn-success mt-4 ms-2">Listar estudiantes</button>
+
+        <div class="row g-3 mt-4">
+          <div class="col-md-6">
+            <label for="buscarNombre" class="form-label">Buscar estudiante</label>
+            <div class="input-group">
+              <input id="buscarNombre" type="text" class="form-control" placeholder="Nombre a buscar">
+              <button id="btnBuscar" class="btn btn-outline-primary">Buscar</button>
+            </div>
+          </div>
+        </div>
+ 
+        <div id="resultado" class="alert mt-4 d-none"></div>
+        <div id="beca" class="alert mt-2 d-none"></div>
+
+        <div id="estadisticas" class="mt-3 d-none">
+          <div id="notasInfo" class="mb-2 alert alert-info"></div>
+          <div id="recomendacion" class="mb-2 alert alert-light border"></div>
+          <div id="rendimiento" class="mb-2 alert alert-light border"></div>
+        </div>
+
+        <div id="cursoInfo" class="mt-4 d-none card border-primary">
+          <div class="card-header bg-primary text-white">Estadísticas del Curso</div>
+          <div class="card-body">
+            <div id="totalEstudiantes" class="mb-2 fw-bold"></div>
+            <div id="cursoResumen" class="mb-2"></div>
+            <div id="rankingInfo" class="mb-2"></div>
+            <div id="mejores" class="mb-2 text-success fw-bold"></div>
+          </div>
+        </div>
+
+        <div id="tablaContenedor" class="mt-4 d-none table-responsive">
+          <h3 class="h5 mb-3 text-secondary">Ranking de Estudiantes (Ordenados por Promedio Alto)</h3>
+          <table id="tablaEstudiantes" class="table table-striped table-bordered align-middle">
+            <thead class="table-dark">
+              <tr>
+                <th>Nombre</th>
+                <th>Carrera</th>
+                <th>Notas</th>
+                <th>Promedio</th>
+                <th>Promedio esp.</th>
+                <th>Mayor</th>
+                <th>Menor</th>
+                <th>Estado</th>
+                <th>Rendimiento</th>
+                <th>Beca</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+ 
+        <pre id="salidaJSON" class="bg-dark text-white p-3 rounded mt-4 d-none"></pre>
+      </div>
+    </section>
+  </main>
+ 
+  <script src="app.js"></script>
+</body>
+</html>
